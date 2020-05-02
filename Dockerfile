@@ -26,6 +26,7 @@ RUN chown -R www-data:www-data * && \
     mkdir mount && chmod 777 mount && chown www-data:www-data mount
 
 COPY customizeSettings.sh /var/www/html/
+COPY wxwebcam.php /var/www/html
 
 RUN sed -i -e '/^#AddDef/s/\#AddDef/AddDef/' /etc/apache2/conf-enabled/charset.conf && \
     sed -i -e '/fcsticonstype/s/jpg/gif/' Settings.php && \
