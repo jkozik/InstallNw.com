@@ -86,3 +86,9 @@ sed -i '/External Links/, /^<.ul>/ c\
 
 echo "Customize include-wxstatus.php"
 sed -i '/realtimefile/s/15/60/' include-wxstatus.php
+
+echo "Customize noaafct/noaaSettings.php"
+sed -i -e '/myLatitude/s/= \x27.*\x27;/= \x2741.7900009\x27;/' \
+       -e '/myLongitude/s/= \x27.*\x27;/= \x27-88.1200027\x27;/'   \
+       -e '/myArea/s/= \x27.*\x27;/= \x27Naperville\x27;/'   \
+       -e '/myStation/s/= \x27.*\x27;/= \x27NapervilleWeather.com\x27;/'   noaafct/noaaSettings.php

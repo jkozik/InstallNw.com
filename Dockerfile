@@ -11,12 +11,14 @@ ADD http://saratoga-weather.org/wxtemplates/Base-USA.zip  /var/www/html
 ADD http://saratoga-weather.org/wxtemplates/CU-plugin.zip  /var/www/html
 ADD http://saratoga-weather.org/saratoga-icons2.zip /var/www/html
 ADD http://saratoga-weather.org/wxtemplates/meteotreviglio-icons.zip /var/www/html
+COPY noaafct.zip  /var/www/html
 
 RUN cd /var/www/html && \
     unzip Base-USA.zip  && rm Base-USA.zip && \
     unzip CU-plugin.zip && rm CU-plugin.zip && \
     unzip -of saratoga-icons2.zip && rm saratoga-icons2.zip && \
-    unzip meteotreviglio-icons.zip && rm meteotreviglio-icons.zip 
+    unzip meteotreviglio-icons.zip && rm meteotreviglio-icons.zip && \
+    unzip noaafct.zip && cp noaafct/wxStartNoaaFct.php /var/www/html && rm noaafct.zip
 
 RUN chown -R www-data:www-data * && \
     chmod -R 755 . && \
