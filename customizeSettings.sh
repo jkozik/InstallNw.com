@@ -97,3 +97,6 @@ echo "Customize noaafct/noaaDigitalGenerateHtml.php"
 sed -i '/<?php/a\
 error_reporting(0);
 ' noaafct/noaaDigitalGenerateHtml.php
+
+echo "Customize davconvp2CW.php"
+sed -i '/graphurl/s/davcon24.txt/mount\/davcon24.txt/'  davconvp2CW.php
