@@ -42,6 +42,9 @@ sed -i  -e  '/SITE\[\x27realtimefile/s/realtime.txt/mount\/realtime.txt/' \
         -e  '/SITE\[\x27conditionsMETAR/s/= \x27.*;/= \x27KDPA\x27;/' \
         Settings-weather.php
 
+echo "Customize ajaxCUwx.js"
+sed -i '/realtimeFile = \x27/s/realtime.txt/.\/mount\/realtime.txt/' ajaxCUwx.js
+
 echo "Customize wxquake.php"
 sed -i -e '/$setLatitude/s//#&/' \
        -e '/$setLongitude/s//#&/' \
