@@ -16,11 +16,11 @@ $ docker stop nw.com-app; docker rm nw.com-app
 
 This container mounts a host directory (see -v option above). The data comes from the Cumulus program that runs in a separte Windows 10 instance.  The following data is expected there:
 ```
-realtime.txt -- key realtime file updated every minute
-davconfcst.php,davcon24.txt -- data to recreate the Davis Console.  Scripts from Silver Acron Weather
-Reports/ -- from Cumulus program
-images/ -- from Cumulus program
-awekas_wl.htm -- from Cumulus, retrieved by https://www.awekas.at/
+-realtime.txt -- key realtime file updated every minute
+-davconfcst.php,davcon24.txt -- data to recreate the Davis Console.  Scripts from Silver Acron Weather
+-Reports/ -- Cumulus reports by month
+-images/ -- Cumulus station graphes
+-awekas_wl.htm -- retrieved by https://www.awekas.at/
 
 ```
 The Cumulus program has an Internet Files menu tab that generates these files from templates.  Setup for generating these files is outside of the scope for this repository.
