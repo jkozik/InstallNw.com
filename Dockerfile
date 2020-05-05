@@ -15,6 +15,7 @@ ADD http://saratoga-weather.org/wxtemplates/meteotreviglio-icons.zip /var/www/ht
 #ADD https://silveracorn.nz/weather/download.php?download_file=davconsoleCW241_Full.zip /var/www/html
 COPY davconsoleCW241_Full.zip /var/www/html
 COPY noaafct.zip  /var/www/html
+COPY favicon.ico /var/www/html
 
 RUN cd /var/www/html && \
     unzip Base-USA.zip  && rm Base-USA.zip && \
