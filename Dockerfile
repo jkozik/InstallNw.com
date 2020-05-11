@@ -7,15 +7,15 @@ RUN apt update && apt -y install vim unzip wget libpng-dev zlib1g-dev  && \
 
 WORKDIR /var/www/html
 
-ADD http://saratoga-weather.org/wxtemplates/Base-USA.zip  /var/www/html
+ADD http://saratoga-weather.org/wxtemplates/Base-USA.zip   /var/www/html
 ADD http://saratoga-weather.org/wxtemplates/CU-plugin.zip  /var/www/html
-ADD http://saratoga-weather.org/saratoga-icons2.zip /var/www/html
+ADD http://saratoga-weather.org/saratoga-icons2.zip        /var/www/html
 ADD http://saratoga-weather.org/wxtemplates/meteotreviglio-icons.zip /var/www/html
-#ADD http://napervilleweather.com/davconsoleCW241_Full.zip /var/www/html
+#ADD http://napervilleweather.com/davconsoleCW241_Full.zip           /var/www/html
 #ADD https://silveracorn.nz/weather/download.php?download_file=davconsoleCW241_Full.zip /var/www/html
 COPY davconsoleCW241_Full.zip /var/www/html
-COPY noaafct.zip  /var/www/html
-COPY favicon.ico /var/www/html
+COPY noaafct.zip     /var/www/html
+COPY favicon.ico     /var/www/html
 
 RUN cd /var/www/html && \
     unzip Base-USA.zip  && rm Base-USA.zip && \
@@ -24,6 +24,7 @@ RUN cd /var/www/html && \
     unzip meteotreviglio-icons.zip && rm meteotreviglio-icons.zip && \
     unzip noaafct.zip && cp noaafct/wxStartNoaaFct.php /var/www/html && rm noaafct.zip && \
     unzip davconsoleCW241_Full.zip  && rm davconsoleCW241_Full.zip
+COPY flyout-menu.xml /var/www/html
 
 RUN chown -R www-data:www-data * && \
     chmod -R 755 . && \
