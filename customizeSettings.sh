@@ -36,14 +36,14 @@ $SITE[\x27NWSalertsCodes\x27] = array( \
 ' Settings.php
 
 echo "Customize Settings-weather.php"
-sed -i  -e  '/SITE\[\x27realtimefile/s/realtime.txt/mount\/realtime.txt/' \
-        -e  '/SITE\[\x27graphImageDir/s/images/mount\/images/' \
-        -e  '/SITE\[\x27NOAAdir/s/Reports/mount\/Reports/' \
+sed -i  -e  '/SITE\[\x27realtimefile/s/realtime.txt/mount\/cumulus\/realtime.txt/' \
+        -e  '/SITE\[\x27graphImageDir/s/images/mount\/cumulus\/images/' \
+        -e  '/SITE\[\x27NOAAdir/s/Reports/mount\/cumulus\/Reports/' \
         -e  '/SITE\[\x27conditionsMETAR/s/= \x27.*;/= \x27KDPA\x27;/' \
         Settings-weather.php
 
 echo "Customize ajaxCUwx.js"
-sed -i '/realtimeFile = \x27/s/realtime.txt/.\/mount\/realtime.txt/' ajaxCUwx.js
+sed -i '/realtimeFile = \x27/s/realtime.txt/.\/mount\/cumulus\/realtime.txt/' ajaxCUwx.js
 
 echo "Customize wxquake.php"
 sed -i -e '/$setLatitude/s//#&/' \
@@ -102,4 +102,4 @@ error_reporting(0);
 ' noaafct/noaaDigitalGenerateHtml.php
 
 echo "Customize davconvp2CW.php"
-sed -i '/graphurl/s/davcon24.txt/mount\/davcon24.txt/'  davconvp2CW.php
+sed -i '/graphurl/s/davcon24.txt/mount\/saratoga\/davcon24.txt/'  davconvp2CW.php
