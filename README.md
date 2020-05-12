@@ -11,7 +11,6 @@ Next, clone the repository, build and run it
 $ git clone https://github.com/jkozik/InstallNw.com
 # Optionally edit customerSettings.sh 
 $ docker build -t jkozik/nw.com .
-$ docker run -dit --name wjr-data -v /mount/wjr:/var/www/html/mount php:7.2-apache
 $ docker run -dit --name nw.com-app -p 8082:80 --volumes-from wjr-data jkozik/nw.com
 
 # shell prompt, logs, and restart needed for rebuild
