@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nwcom-depl
+  labels:
+    app: nwcom
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nwcom
+  template:
+    metadata:
+      labels:
+        app: nwcom
+    spec:
+      containers:
+      - name: nwcom
+        image: jkozik/nw.com
+        imagePullPolicy: Never
+        volumeMounts:
+        - mountPath: /var/www/html/mount
+          name: mydir
+        ports:
+        - containerPort: 80
+      volumes:
+      - name: mydir
+        hostPath:
+          path: /hosthome/wjr/public_html
+          type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nwcom-service
+spec:
+  type: NodePort
+  selector:
+    app: nwcom
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    nodePort: 30080
