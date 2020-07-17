@@ -38,7 +38,7 @@ COPY wxwebcam.php /var/www/html
 
 RUN sed -i -e '/^#AddDef/s/\#AddDef/AddDef/' /etc/apache2/conf-enabled/charset.conf && \
     sed -i -e '/fcsticonstype/s/jpg/gif/' Settings.php && \
-    chmod +x customizeSettings.sh && . ./customizeSettings.sh
+    chmod +x customizeSettings.sh #  && . ./customizeSettings.sh
 
 #COPY /home/jkozik/apache/mount/realtime.txt /var/www/html/realtime.txt
 

@@ -103,3 +103,10 @@ error_reporting(0);
 
 echo "Customize davconvp2CW.php"
 sed -i '/graphurl/s/davcon24.txt/mount\/saratoga\/davcon24.txt/'  davconvp2CW.php
+
+echo "rename wxindex.php to index.php"
+mv wxindex.php index.php
+sed -i  -e '/wxindex/s/wxindex/index/' flyout-menu.xml
+
+echo "New Radar view in Settings.php"
+sed -i -e '/NWSregion/s/sw/nc/' Settings.php

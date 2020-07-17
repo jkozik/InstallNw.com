@@ -31,3 +31,9 @@ The wjr-data contain mounts a host directory. The data comes from the Cumulus pr
 The Cumulus program has an Internet Files menu tab that generates these files from templates.  Setup for generating these files is outside of the scope for this repository.
 The precise paths to the data above are not fixed.  EG, the key file realtime.txt is found at mount/cumulus/realtime.txt.  This path needs to get reflected in Settings.php and Settings-weather.php; I use the customizeSettings.sh script to set this. You'll need to edit customizeSettings.sh for your setup.
 
+I decided to run the nw.com application straight on the server, no VMs.  Here's the two key commands I ran as user jkozik on the server:
+```
+$ docker run -dit --name wjr-data -v /home/wjr/public_html:/var/www/html/mount php:7.2-apache
+$ docker run -dit --name nw.com-app -p 8082:80 --volumes-from wjr-data jkozik/nw.com
+```
+
