@@ -36,4 +36,8 @@ I decided to run the nw.com application straight on the server, no VMs.  Here's 
 $ docker run -dit --name wjr-data -v /home/wjr/public_html:/var/www/html/mount php:7.2-apache
 $ docker run -dit --name nw.com-app -p 8082:80 --volumes-from wjr-data jkozik/nw.com
 ```
+At this point, it is good to verify that the web server can correctly see the realtime weather data. Run the following test:
+```
+$ curl http://napervilleweather.com/mount/cumulus/realtime.txt
+```
 
