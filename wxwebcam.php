@@ -48,9 +48,9 @@ include("menubar.php");
 <div id="main-copy">
 
         <h1><?php langtrans('Web Cam'); ?></h1>
-<img src="http://napervilleweather.com/webcam/fixed1.jpg" border="0" width="320" height="240">
+<img src="http://napervilleweather.com/mount/webcam/fixed1.jpg" border="0" width="320" height="240">
     <p></p>
-<img src="http://napervilleweather.com/webcam/fixed2.jpg" border="0" width="320" height="240">
+<img src="http://napervilleweather.com/mount/webcam/fixed2.jpg" border="0" width="320" height="240">
 
 
 
