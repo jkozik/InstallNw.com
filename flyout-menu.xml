@@ -36,7 +36,8 @@
 	<item caption="Home" link="wxindex.php" title="Home Page"/>
 	<item wxonly="VWS" caption="Mesonet" title="Local Weather Exchange Stations" link="wxmesonet.php"/>
 	<item caption="Radar">
-	    <item caption="Local Radar" link="wxradar.php" title="Radar"/>
+	    <item caption="WU Radar" link="wxradar.php" title="Radar"/>
+	    <item caption="NSW Radar" link="wxnwsradar.php" title="Radar"/>
 <!--
 		<item caption="GRLevel3 Radar" link="wxgr3radar.php" title="NEXRAD Radar using GRLevel3" />
 -->
