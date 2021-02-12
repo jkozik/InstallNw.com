@@ -40,4 +40,15 @@ At this point, it is good to verify that the web server can correctly see the re
 ```
 $ curl http://napervilleweather.com/mount/cumulus/realtime.txt
 ```
+# Updates
+The weather scripts update frequently.  I read the updates and every few months I apply the updates. Here's the steps I follow.
+```
+$ docker build --no-cache -t jkozik/nw.comtmp .
+$ docker stop nw.com-app
+$ docker run -dit --name nw.com-apptmp -p 8082:80 --volumes-from wjr-data jkozik/nw.comtmp
+$ docker rm nw.com-app
+$ docker rename nw.com-apptmp nw.com-app
+```
+Note: I rebuild everything with the no-cache option, but I build it to a temp name, so that I can fall back to the old version if the updates don't work. Once the new version works, I delete the old continer and rename the temp version.
+
 
