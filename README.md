@@ -50,5 +50,28 @@ $ docker rm nw.com-app
 $ docker rename nw.com-apptmp nw.com-app
 ```
 Note: I rebuild everything with the no-cache option, but I build it to a temp name, so that I can fall back to the old version if the updates don't work. Once the new version works, I delete the old continer and rename the temp version.
+# Restart after power outage
+Rarely, I have to restart the server.  Most recently, this was because of a power outage.  On my todo list is to re-run the containers with the --restart unless-stopped and make sure the dependency with the shared data volume is addressed.  But for now, I run the following commands to manually restart the weather servers on the dell2 server. The following commands are run from the jkozik login:
+``` 
+$ docker start wjr-data
+$ docker start weather-data
+$ docker start nw.com-app
+$ docker start chw.com-app
+$ docker start chw.net-app
+```
+Verify that everything is working by running docker ps.
+```
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
+207c0f39ef59        jkozik/chw.com      "docker-php-entryp..."   3 weeks ago         Up 16 hours         0.0.0.0:8083->80/tcp   chw.com-app
+b10d2f81c3d7        jkozik/nw.com       "docker-php-entryp..."   3 weeks ago         Up 16 hours         0.0.0.0:8082->80/tcp   nw.com-app
+fcae2d91f8ac        jkozik/chw.net      "docker-php-entryp..."   7 months ago        Up 16 hours         0.0.0.0:8081->80/tcp   chw.net-app
+d6b0265159e4        jkozik/nw.net       "docker-php-entryp..."   7 months ago        Up 16 hours         0.0.0.0:8080->80/tcp   nw.net-app
+c4527394f999        php:7.2-apache      "docker-php-entryp..."   7 months ago        Up 16 hours         80/tcp                 weather-data
+37de44712020        php:7.2-apache      "docker-php-entryp..."   8 months ago        Up 16 hours         80/tcp                 wjr-data
+$
+```
+
+
 
 
