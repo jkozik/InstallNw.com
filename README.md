@@ -2,7 +2,8 @@
 NapervilleWeather.com is made from the scripts at Saratoga Weather. With this repository, I hope to automate putting these scripts into a docker container, making it easier for me to keep up to date and move as my server environment evolves.
 First, setup a data storage container that wraps the realtime weather data files (eg realtime.txt) into something that can be shared across multiple containers.  So run below, but only once.  If you are running multiple websites from the same weather data, this container is shared.  So optionally run below:
 ```
-$ docker run -dit --name wjr-data -v /mount/wjr:/var/www/html/mount php:7.2-apache
+$ # OLD docker run -dit --name wjr-data -v /mount/wjr:/var/www/html/mount php:7.2-apache
+$ docker run -dit --name wjr-data -v /home/wjr/public_html:/var/www/html/mount php:7.2-apache
 $ docker exec -it wjr-data /bin/bash     # verify that you can find realtime.txt in the directory sited above
 ```
 
