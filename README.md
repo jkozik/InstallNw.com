@@ -72,7 +72,7 @@ c4527394f999        php:7.2-apache      "docker-php-entryp..."   7 months ago   
 37de44712020        php:7.2-apache      "docker-php-entryp..."   8 months ago        Up 16 hours         80/tcp                 wjr-data
 $
 ```
-
+Updated to work with ssh access.
 
 
 
