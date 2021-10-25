@@ -84,7 +84,7 @@ sed -i '/External Links/, /^<.ul>/ c\
    <li><a href="http://www.wxqa.com/sss/search1.cgi?keyword=CW7164" title="CW7164">APRS-CW7164</a></li>\
    <li><a href="https://www.awekas.at/en/instrument.php?id=3086" title="-AWEKAS">AWEKAS-3086</a></li>\
    <li><a href="https://www.pwsweather.com/obs/NAPERVILLE.html" title="PWS-NAPERVILLE">PWS-NAPER</a></li>\
-   <li><a href="http://weewx.napervilleweather.net" title="WeeWx">WeeWx</a></li>\
+   <li><a href="http://napervilleweather.net/weewx" title="WeeWx">WeeWx</a></li>\
 </ul>\
 ' menubar.php
 
