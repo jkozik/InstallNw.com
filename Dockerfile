@@ -25,6 +25,7 @@ RUN cd /var/www/html && \
     unzip noaafct.zip && cp noaafct/wxStartNoaaFct.php /var/www/html && rm noaafct.zip && \
     unzip davconsoleCW241_Full.zip  && rm davconsoleCW241_Full.zip
 COPY flyout-menu.xml /var/www/html
+COPY wxweatherlink.php /var/www/html
 
 RUN chown -R www-data:www-data * && \
     chmod -R 755 . && \
