@@ -89,6 +89,17 @@ sed -i '/External Links/, /^<.ul>/ c\
 </ul>\
 ' menubar.php
 
+echo "Customize flyout-menu.xml"
+sed -i '/Nearby METAR Reports/a\
+                <item caption="Steel Guages" link="wxssgauges.php"/>\
+                <item caption="WeatherLink" link="wxweatherlink.php"/>\
+     
+' flyout-menu.xml
+
+
+echo "Customize include-wxstatus.php"
+sed -i '/realtimefile/s/15/60/' include-wxstatus.php
+
 echo "Customize include-wxstatus.php"
 sed -i '/realtimefile/s/15/60/' include-wxstatus.php
 
@@ -105,6 +116,14 @@ error_reporting(0);
 
 echo "Customize davconvp2CW.php"
 sed -i '/graphurl/s/davcon24.txt/mount\/saratoga\/davcon24.txt/'  davconvp2CW.php
+
+echo "Customize Steel Gauges"
+sed -i '/Combined/,$s/scripts/.\/ssg\/scripts/' ssg/gauges-ss-basic-inc.php
+sed -i -e '/showUvGauge/s/true/false/' \
+	-e '/imgPathURL/s/images/mount\/cumulus\/images/' \
+	-e '/realTimeUrlCumulus/s/realtimegauges.txt/.\/mount\/saratoga\/realtimegauges.txt/' \
+	-e '/showSolarGauge/s/true/false/' ssg/scripts/gauges.js
+
 
 echo "rename wxindex.php to index.php"
 mv wxindex.php index.php

@@ -1,0 +1,11 @@
+services:
+  nw.com:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: jkozik/nw.com
+    ports:
+      - "8085:80"
+    container_name: nw.com-app
+    volumes:
+      - /mnt/wjr_share:/var/www/html/mount
