@@ -1,5 +1,5 @@
-FROM php:7.2-apache 
-RUN apt update && apt -y install vim unzip wget libpng-dev zlib1g-dev  && \
+FROM php:8.1-apache 
+RUN apt update && apt -y install vim unzip wget libpng-dev zlib1g-dev libonig-dev && \
     docker-php-ext-install calendar && \
     docker-php-ext-install mbstring && \
     docker-php-ext-install gd && \
