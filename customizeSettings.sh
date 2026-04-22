@@ -163,6 +163,11 @@ grep -q '(float)\$arr\[' noaafct/noaaDigitalGenerateHtml.php || \
       sed -i "s/1\.0\*\$arrFcst\['defailtIcon'\]/(float)\$arrFcst['defailtIcon']/" \
           noaafct/noaaDigitalGenerateHtml.php
 
+# Fix: windGustNU stores '-' as missing-data sentinel; 1.0*$gust is a TypeError in PHP 8.
+grep -q '(float)\$gust > 0' noaafct/noaaDigitalGenerateHtml.php || \
+    sed -i 's/1\.0\*\$gust > 0/(float)\$gust > 0/' \
+        noaafct/noaaDigitalGenerateHtml.php
+
   # Fix: $graphTempMin/$graphTempMax can be '-' sentinel; floor/ceil reject non-numeric strings in PHP 8.
   grep -q 'floor((float)' noaafct/noaaDigitalGenerateHtml.php || \
       sed -i 's/floor (\$graphTempMin)/floor((float)\$graphTempMin)/' \
