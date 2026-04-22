@@ -132,5 +132,73 @@ sed -i  -e '/wxindex/s/wxindex/index/' flyout-menu.xml
 echo "New Radar view in Settings.php"
 sed -i -e '/NWSregion/s/sw/nc/' Settings.php
 
+echo "PHP 8.x compatibility fixes"
+
+# Fix: noaacommontemperature() receives e.g. '54F' (string+unit suffix) -- round() is a TypeError in PHP 8.
+# The end-of-line anchor avoids a false match on the same variable in an inline else clause.
+# Guard: grep skips the sed if upstream has already added a (float) cast.
+grep -q '(float)\$value' noaafct/noaaSettings.php || \
+    sed -i 's/\(\$color[[:space:]]*= \x27red\x27;[[:space:]]*\)$/\1\n\t\$value\t\t\t= (float)\$value;/' \
+        noaafct/noaaSettings.php
+
+# Fix: wsnoaafcttransstr() passes $trans (never initialized, so null) to str_replace() -- deprecated in PHP 8.1.
+# Guard: grep skips if upstream has already added the null-coalescing operator.
+grep -q '\$trans ?? ' noaafct/noaaSettings.php || \
+    sed -i 's/str_replace (\$trans,\x27\x27,/str_replace (\$trans ?? \x27\x27,\x27\x27,/' \
+        noaafct/noaaSettings.php
+
+# Fix: liquidNU stores '-' as a missing-data sentinel; string * float is a TypeError in PHP 8.
+# Guard: grep skips if upstream has already added a (float) cast.
+grep -q '(float)\$arr\[' noaafct/noaaDigitalGenerateHtml.php || \
+    sed -i "s/(1\.0 \* \$arr\['liquidNU'\]) > 0/((float)\$arr['liquidNU']) > 0/" \
+        noaafct/noaaDigitalGenerateHtml.php
+
+  # Fix: tempAppNU stores '-' as a missing-data sentinel; string * float is a TypeError in PHP 8.
+  grep -q '(float)\$arr\[.tempAppNU' noaafct/noaaDigitalGenerateHtml.php || \
+      sed -i "s/1\.0\*\$arr\['tempAppNU'\]/(float)\$arr['tempAppNU']/" \
+          noaafct/noaaDigitalGenerateHtml.php
+
+  # Fix: defailtIcon can be a non-numeric string; string * float is a TypeError in PHP 8.
+  grep -q '(float)\$arrFcst\[.defailtIcon' noaafct/noaaDigitalGenerateHtml.php || \
+      sed -i "s/1\.0\*\$arrFcst\['defailtIcon'\]/(float)\$arrFcst['defailtIcon']/" \
+          noaafct/noaaDigitalGenerateHtml.php
+
+  # Fix: $graphTempMin/$graphTempMax can be '-' sentinel; floor/ceil reject non-numeric strings in PHP 8.
+  grep -q 'floor((float)' noaafct/noaaDigitalGenerateHtml.php || \
+      sed -i 's/floor (\$graphTempMin)/floor((float)\$graphTempMin)/' \
+          noaafct/noaaDigitalGenerateHtml.php
+
+  grep -q 'ceil((float)' noaafct/noaaDigitalGenerateHtml.php || \
+      sed -i "s/ceil \t(\$graphTempMax)/ceil((float)\$graphTempMax)/" \
+          noaafct/noaaDigitalGenerateHtml.php
+
+  # Fix: fmod() returns float; PHP 8 requires (int) cast for array index.
+  grep -q '(int)fmod' noaafct/noaaSettings.php || \
+      sed -i 's/\$windlabel\[ fmod(/\$windlabel[ (int)fmod(/' \
+          noaafct/noaaSettings.php
+
+  grep -q '(int)fmod' noaafct/noaaLoadJson.php || \
+      sed -i 's/\$windlabel\[ fmod(/\$windlabel[ (int)fmod(/' \
+          noaafct/noaaLoadJson.php
+
+  # Fix: NWS API no longer always returns 'updated' key; null passed to strtotime/date deprecated in PHP 8.1.
+  grep -q '\$string !== null' noaafct/noaaLoadJson.php || {
+      sed -i "s/\$array\['updated'\];/\$array['updated'] ?? null;/" noaafct/noaaLoadJson.php
+      sed -i "s/\$time\t\t= strtotime(\$string);/\$time\t\t= \$string !== null ? strtotime(\$string) : false;/" noaafct/noaaLoadJson.php
+      sed -i "s/= date('c', strtotime(\$string ) );/= \$string !== null ? date('c', strtotime(\$string)) : '';/" noaafct/noaaLoadJson.php
+      sed -i "s/date( \$dateLongFormat, \$time).' '.date(\$timeFormat, \$time)/\$time !== false ? date(\$dateLongFormat, \$time).' '.date(\$timeFormat, \$time) : ''/"
+  noaafct/noaaLoadJson.php
+  }
+
+
+echo "rename wxindex.php to index.php"
+mv wxindex.php index.php
+sed -i  -e '/wxindex/s/wxindex/index/' flyout-menu.xml
+
+echo "New Radar view in Settings.php"
+sed -i -e '/NWSregion/s/sw/nc/' Settings.php
+
+
 echo "Fix PHP 8.1 deprecation in CU-defs.php"
 sed -i '/windlabel\[ fmod/s/fmod(/(int)fmod(/' CU-defs.php
+

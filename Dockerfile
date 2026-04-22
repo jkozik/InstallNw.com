@@ -1,19 +1,18 @@
-FROM php:8.1-apache 
-RUN apt update && apt -y install vim unzip wget libpng-dev zlib1g-dev libonig-dev && \
-    docker-php-ext-install calendar && \
-    docker-php-ext-install mbstring && \
-    docker-php-ext-install gd && \
-    apt clean
+FROM php:8.2-apache
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        vim unzip wget libpng-dev zlib1g-dev \
+        libjpeg-dev libfreetype6-dev libonig-dev && \
+    docker-php-ext-configure gd --with-freetype --with-jpeg && \
+    docker-php-ext-install calendar mbstring gd && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
 
 ADD http://saratoga-weather.org/wxtemplates/Base-USA.zip   /var/www/html
 ADD http://saratoga-weather.org/wxtemplates/CU-plugin.zip  /var/www/html
-ADD https://github.com/mcrossley/SteelSeries-Weather-Gauges/archive/master.zip /var/www/html
 ADD http://saratoga-weather.org/saratoga-icons2.zip        /var/www/html
 ADD http://saratoga-weather.org/wxtemplates/meteotreviglio-icons.zip /var/www/html
-#ADD http://napervilleweather.com/davconsoleCW241_Full.zip           /var/www/html
-#ADD https://silveracorn.nz/weather/download.php?download_file=davconsoleCW241_Full.zip /var/www/html
+ADD https://github.com/mcrossley/SteelSeries-Weather-Gauges/archive/master.zip /var/www/html
 COPY davconsoleCW241_Full.zip /var/www/html
 COPY noaafct.zip     /var/www/html
 COPY favicon.ico     /var/www/html
