@@ -37,7 +37,7 @@ RUN chown -R www-data:www-data * && \
     chmod -R 755 . && \
     chmod 775 alert-images/ ajax-images/ cache/ alertlog/ WXtags-template-files/ && \
     chmod 775 forecast/ forecast/images/ forecast/icon-templates/ && \
-    chmod 775 cumx/ davcon/ jpgraph-4.4.2-src-only/ moonimg/ noaafct/  ssg/ && \
+    chmod 775 davcon/ jpgraph-4.4.2-src-only/ moonimg/ noaafct/  ssg/ && \
     chmod 777 cache && \ 
     mkdir mount && chmod 777 mount && chown www-data:www-data mount
 

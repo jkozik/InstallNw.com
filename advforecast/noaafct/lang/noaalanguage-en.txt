@@ -1,0 +1,3 @@
+# langfile modified on: 2014-06-07		(YYYY-MM-DD)
+charset|UTF-8|
+langlookup|PoP|Chance of precipitation|

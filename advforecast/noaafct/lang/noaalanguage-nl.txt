@@ -1,0 +1,63 @@
+# langfile modified on: 2014-06-07		(YYYY-MM-DD)
+charset|UTF-8|
+# months  weeks and other date texts
+langlookup|wufct_date|Datum|
+langlookup|wufct_January|Januari|
+langlookup|wufct_February|Februari|
+langlookup|wufct_March|Maart|
+langlookup|wufct_April|April|
+langlookup|wufct_May|Mei|
+langlookup|wufct_June|Juni|
+langlookup|wufct_July|Juli|
+langlookup|wufct_August|Augustus|
+langlookup|wufct_September|September|
+langlookup|wufct_October|Oktober|
+langlookup|wufct_November|November|
+langlookup|wufct_December|December|
+# 
+langlookup|wufct_Sunday|Zondag|
+langlookup|wufct_Monday|Maandag|
+langlookup|wufct_Tuesday|Dinsdag|
+langlookup|wufct_Wednesday|Woensdag|
+langlookup|wufct_Thursday|Donderdag|
+langlookup|wufct_Friday|Vrijdag|
+langlookup|wufct_Saturday|Zaterdag|
+# weather values
+langlookup|wufct_chance of|Kans op|
+langlookup|wufct_Precipation|Neerslag|
+langlookup|wufct_Wind|Wind|
+langlookup|wufct_Temperature|Temperatuur|
+langlookup|wufct_Humidity|Vochtigheid|
+langlookup|wufct_icon|icon|
+langlookup|wufct_humidity|Vochtigheid|
+langlookup|wufct_rain|Neerslag|
+langlookup|wufct_wind|Wind|
+# headings and credits
+langlookup|wufct_Original script by|Script ontwikkeld door|
+langlookup|wufct_Forecast for|Verwachtingen voor|
+langlookup|wufct_updated|gewijzigd|
+langlookup|wufct_forecast|Verwachting|
+langlookup|wufct_day forecast for|daagse verwachtingen voor|
+# weather descriptions
+langlookup|wufct_chanceflurries|Kans op buien|
+langlookup|wufct_chancerain|Kans op regen|
+langlookup|wufct_chancesleet|Kans op winters weer|
+langlookup|wufct_chancesnow|Kans op sneeuw|
+langlookup|wufct_chancetstorms|Kans op storm|
+langlookup|wufct_clear|Helder|
+langlookup|wufct_cloudy|Bewolkt|
+langlookup|wufct_flurries|Buien|
+langlookup|wufct_fog|mist|
+langlookup|wufct_hazy|mist|
+langlookup|wufct_mostlycloudy|Grotendeels bewolkt|
+langlookup|wufct_mostlysunny|Grotendeels onbewolkt|
+langlookup|wufct_partlycloudy|Gedeeltelijk bewolkt|
+langlookup|wufct_partlysunny|Gedeeltelijk bewolkt|
+langlookup|wufct_rain|Regen|
+langlookup|wufct_sleet|Winters weer|
+langlookup|wufct_snow|Sneeuw|
+langlookup|wufct_sunny|Zonnig|
+langlookup|wufct_tstorms|Onweers<br />buien|
+
+
+

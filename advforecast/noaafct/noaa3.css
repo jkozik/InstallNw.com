@@ -1,0 +1,173 @@
+/*  version 3.00  SA css file 2014-07-15   */
+html, body {
+	color: black;
+	margin: 0 0 0 0;
+	font-family: verdana, helvetica, arial, sans-serif;
+	font-size: 73%; 
+}
+html > body {
+	font-size: 9pt;
+}
+#pagina {
+	border: 0px solid #959596;
+	border-radius: 5px;
+	width: 95%;
+	margin: 0px auto;
+	color: black;
+	padding: 0;
+	min-width: 500px;				
+}
+.noaadiv        {
+        width:          99%;
+        border:         1px inset; 
+        border-radius:  5px; 
+        margin:         10px auto;
+}
+.blockHead      {
+	background-color: #666666;
+	color: white;
+	text-align: center;
+	margin: 0;
+}
+.blockHead a {color: white;	}
+
+.genericTable { 
+	border-collapse: collapse;
+	width: 100%;
+	color: black;
+	text-align: center;
+}
+.genericTable td { 
+	padding: 0px; 
+}
+.genericTable th {
+}
+.genericTable tr {height: 20px;
+}
+.genericTable img {border: none;
+}
+.genericTable small {
+        color: grey;
+}
+.table-top {
+	background-color: #C0C0C0;
+	font-size: 10px;
+	font-weight: bold;
+}
+.row-dark {
+	background-color: #EEEEEE;
+}
+.row-light {
+	background-color: transparent;
+}
+.myTemp {
+	text-shadow:1px 1px black; 
+	font-weight: bolder; 
+	font-size: 200%; 
+}
+.pastel  		{background-color: #F1F8FE;}
+.pastel .table-top 	{background-color: #336699; color: white;}
+.pastel .blockHead      {background-color: #336699;}
+.pastel .row-dark 	{background-color: #B7D0E8;}
+
+.green  			{background-color: #D5DCCA;}
+.green 	.table-top 	{background-color: #A7BF8E;}
+.green 	.blockHead 	{background-color: #A7BF8E;}
+.green 	.row-dark 	{background-color: #B1CBA0;}
+
+.blue  				{background-color: #F1F8FE;}
+.blue 	.table-top 	{background-color: #96C6F5;}
+.blue 	.blockHead 	{background-color: #96C6F5;}
+.blue 	.row-dark 	{background-color: #B7D0E8;}
+
+.beige  			{background-color: #FFF7ED;}
+.beige 	.table-top 	{background-color: #CCBFAD;}
+.beige 	.blockHead 	{background-color: #CCBFAD;}
+.beige 	.row-dark 	{background-color: #E3D7C5;}
+
+.orange  			{background-color: #F9F0DD;}
+.orange .table-top 	{background-color: #E9C781;}
+.orange .blockHead	{background-color: #E9C781;}
+.orange .row-dark 	{background-color: #E6D89C;}
+
+/*--------------------------------------------------
+  REQUIRED to hide the non-active tab content.
+  But do not hide them in the print stylesheet!
+  --------------------------------------------------*/
+.tabberlive .tabbertabhide {
+ display:none;
+}
+
+/*--------------------------------------------------
+  .tabber = before the tabber interface is set up
+  .tabberlive = after the tabber interface is set up
+  --------------------------------------------------*/
+.tabber {
+        width: 99%; 
+}
+.tabberlive {
+        text-align: left;
+        margin: 10px auto;
+}
+
+/*--------------------------------------------------
+  ul.tabbernav = the tab navigation list
+  li.tabberactive = the active tab
+  --------------------------------------------------*/
+.tabbernav{
+        margin:0;
+        padding: 3px 3px ;
+        border-bottom: 0px solid #778;
+        font: bold 12px Verdana, sans-serif;
+}
+.tabbernav li   {
+        list-style: none;
+        min-height:40px;
+        margin: 0;
+        display: inline;
+}
+.tabbernav li a {
+        padding: 3px 0.5em;
+        min-height: 40px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        margin-left: 3px;
+        border: 1px solid #778;
+        border-bottom: none;
+/* background-color: #AAA;  */
+        text-decoration: none;
+        color: black;
+}
+.tabbernav li tabberactive a:hover {
+        color: #000;
+        border-bottom: none;
+}
+.tabbernav li.tabberactive a    {
+        border-bottom: none;
+        height:40px;
+}
+
+/*--------------------------------------------------
+  .tabbertab = the tab content
+  Add style only after the tabber interface is set up (.tabberlive)
+  --------------------------------------------------*/
+.tabberlive .tabbertab {
+        border:0px solid #aaa;
+/* height: 500px; */
+        overflow:auto;
+        border-top:0;
+}
+
+/* If desired, hide the heading since a heading is provided by the tab */
+.tabberlive .tabbertab h2 {
+ display:none;
+}
+.tabberlive .tabbertab h3 {
+ display:none;
+}
+li.tabberactive a         {background-color: #ccc;}
+.pastel li.tabberactive a {background-color: #B7D0E8;}
+.green 	li.tabberactive a {background-color: #ADCCC5;}
+.blue 	li.tabberactive a {background-color: #B7D0E8;}
+.beige 	li.tabberactive a {background-color: #E3D7C5;}
+.orange li.tabberactive a {background-color: #E9C781;}
