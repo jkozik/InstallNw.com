@@ -6,6 +6,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     docker-php-ext-install calendar mbstring gd && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# PHP2Shell (CVE-2026-109619) hardening: templates do not use upload progress
+RUN printf "session.upload_progress.enabled=0\n" > /usr/local/etc/php/conf.d/zz-security.ini
+
 WORKDIR /var/www/html
 
 ADD http://saratoga-weather.org/wxtemplates/Base-USA.zip   /var/www/html
